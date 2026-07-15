@@ -160,11 +160,11 @@ document.getElementById("copyBtn").addEventListener("click",async()=>{
 
     const btn=document.getElementById("copyBtn");
 
-    btn.textContent="✅ Link Copied!";
+    btn.textContent=" Link Copied ji";
 
     setTimeout(()=>{
 
-        btn.textContent="📋 Copy Link";
+        btn.textContent=" Copy Link";
 
     },2000);
 
@@ -177,3 +177,48 @@ document.getElementById("downloadBtn").addEventListener("click",()=>{
     alert("Coming soon 🚀");
 
 });
+// =============================
+// LOAD BOUQUET FROM URL
+// =============================
+
+(async () => {
+
+    const params = new URLSearchParams(window.location.search);
+
+    const id = params.get("id");
+
+    if (!id) return;
+
+    const { data, error } = await db
+        .from("bouquets")
+        .select("*")
+        .eq("id", id)
+        .single();
+
+    if (error || !data) {
+        console.error(error);
+        return;
+    }
+
+    document.getElementById("letter").value = data.letter || "";
+
+    document.getElementById("heartCount").value = data.hearts || "";
+
+    data.flowers.forEach(f => {
+
+        const flower = document.createElement("img");
+
+        flower.src = f.image;
+        flower.className = "paper-flower";
+
+        flower.style.left = f.left;
+        flower.style.top = f.top;
+        flower.style.transform = f.rotation;
+
+        paper.appendChild(flower);
+
+        enableMove(flower);
+
+    });
+
+})();
