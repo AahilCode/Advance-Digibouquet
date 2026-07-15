@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigiBouquet 💐</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Blur -->
+    <div class="background"></div>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Left Flower Panel -->
+        <aside class="flower-panel">
+
+            <h2>Flowers</h2>
+
+            <div class="flower-list">
+
+                <div class="flower-list">
+
+    <img src="assets/flowers/rose.jpg" class="flower" draggable="true">
+<img src="assets/flowers/tulips.jpg" class="flower" draggable="true">
+<img src="assets/flowers/daisies.png" class="flower" draggable="true">
+<img src="assets/flowers/lavender.jpg" class="flower" draggable="true">
+<img src="assets/flowers/lilies.png" class="flower" draggable="true">
+</div>
+
+            </div>
+
+        </aside>
+
+        <!-- Bouquet Area -->
+        <main class="bouquet-section">
+
+            <div id="paper">
+
+                <textarea
+                    id="letter"
+                    placeholder="Write your letter here..."
+                ></textarea>
+
+            </div>
+
+        </main>
+
+    </div>
+
+    <!-- Bottom Controls -->
+    <section class="controls">
+
+        <div class="heart-box">
+
+            <label>❤️ Hearts</label>
+
+            <input
+                type="number"
+                id="heartCount"
+                placeholder="100"
+                min="1"
+            >
+
+        </div>
+
+        <div class="buttons">
+
+            <button id="copyBtn">
+                📋 Copy Link
+            </button>
+
+            <button id="downloadBtn">
+                ⬇️ Download Long Photo
+            </button>
+
+        </div>
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+</body>
+</html>
